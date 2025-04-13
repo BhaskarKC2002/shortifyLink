@@ -1,14 +1,13 @@
 import { CorsOptions } from 'cors';
 
 const corsOptions: CorsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "https://bhshortifylink.netlify.app"
-  ],
+  origin: true, // Allow all origins for troubleshooting
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'refresh_token', 'Origin', 'X-Requested-With', 'Accept'],
-  exposedHeaders: ['Authorization', 'refresh_token']
+  exposedHeaders: ['Authorization', 'refresh_token'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 
 export default corsOptions; 

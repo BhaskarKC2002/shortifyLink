@@ -29,6 +29,25 @@ export const login = async (
   try {
     console.log("Attempting login with API URL:", httpClient.defaults.baseURL);
     console.log("Login payload:", payload);
+    
+    // Add direct fetch attempt for debugging
+    try {
+      const response = await fetch(`${httpClient.defaults.baseURL}user/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': window.location.origin
+        },
+        body: JSON.stringify(payload)
+      });
+      console.log("Fetch response status:", response.status);
+      const responseData = await response.json().catch(() => null);
+      console.log("Fetch response data:", responseData);
+    } catch (fetchError) {
+      console.error("Debug fetch error:", fetchError);
+    }
+    
+    // Original Axios request
     const { data } = await httpClient.post("user/login", payload);
     console.log("Login response:", data);
     storeAccessTokenToLocal(data.accessToken);
