@@ -10,7 +10,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ 
+  origin: [
+    "http://localhost:3000",
+    "https://your-netlify-site.netlify.app", // Replace with your actual Netlify URL
+    "https://shortifylink-bhaskar.netlify.app", // Common format for Netlify URLs
+    "*" // During testing - remove in production
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

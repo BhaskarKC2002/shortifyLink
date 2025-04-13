@@ -36,9 +36,9 @@ A full-stack web application that allows users to create shortened URLs and trac
 
 ### Installation
 
-1. Clone the repository
+1. Get the code
    ```
-   git clone https://github.com/yourusername/shortifylink.git
+   # Download or extract the project
    cd shortifylink
    ```
 
@@ -70,8 +70,11 @@ A full-stack web application that allows users to create shortened URLs and trac
 ## Deployment
 
 This application is deployed using:
-- GitHub for version control
 - Vercel/Netlify for frontend hosting
 - Render/Heroku for backend hosting
+<<<<<<< HEAD
 - MongoDB Atlas for database
 
+=======
+- MongoDB Atlas for database
+>>>>>>> dd6a30d (Update API URL for production)

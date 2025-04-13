@@ -1,7 +1,10 @@
 import axios from "axios";
 import { handleRefreshToken } from "./authServices";
 
-axios.defaults.baseURL = "http://localhost:5001/api/";
+// Set the base URL for API requests - use environment variable if available, otherwise fallback to localhost
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5001/api/";
+
+axios.defaults.baseURL = API_URL;
 
 axios.interceptors.request.use(
   function (config) {
@@ -27,6 +30,11 @@ axios.interceptors.response.use(
     return response;
   },
   async (error) => {
+    if (!error.response) {
+      console.error("Network Error: Could not connect to the API");
+      return Promise.reject(new Error("Network Error: Could not connect to the API"));
+    }
+    
     //save original request
     const originalRequest = error.config;
 

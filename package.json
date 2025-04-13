@@ -1,0 +1,16 @@
+{
+  "name": "shortifylink-root",
+  "version": "1.0.0",
+  "description": "URL shortener with analytics by Bhaskar",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "install": "cd server && npm install",
+    "build": "cd server && npm install",
+    "postinstall": "cd server && npm install"
+  },
+  "author": "Bhaskar",
+  "engines": {
+    "node": "16.x"
+  }
+} 
