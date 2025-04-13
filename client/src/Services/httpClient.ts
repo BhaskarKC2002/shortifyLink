@@ -36,6 +36,14 @@ axios.interceptors.response.use(
   async (error) => {
     //save original request
     const originalRequest = error.config;
+    
+    console.error("Response error:", error);
+    
+    // Check if response exists before accessing properties
+    if (!error.response) {
+      console.error("Network error: No response from server");
+      return Promise.reject(error);
+    }
 
     if (
       error.response.status === 401 &&
