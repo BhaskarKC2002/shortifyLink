@@ -60,7 +60,10 @@ dbConnect().then(async () => {
   }
 });
 
-//print all the route calling
+// Add OPTIONS preflight handling
+app.options('*', cors(corsOptions));
+
+// Print all route calling
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(`Route call : ${req.method}: ${req.originalUrl}`);
   next();
