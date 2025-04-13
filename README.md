@@ -75,6 +75,3 @@ This application is deployed using:
 - Render/Heroku for backend hosting
 - MongoDB Atlas for database
 
-## License
-
-This project is licensed under the MIT License
