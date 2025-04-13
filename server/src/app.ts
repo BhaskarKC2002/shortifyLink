@@ -66,6 +66,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+// Add health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', env: process.env.NODE_ENV });
+});
+
 //initiate router
 app.use("/api", baseRouter);
 
