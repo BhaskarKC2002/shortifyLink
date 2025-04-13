@@ -2,10 +2,15 @@ import axios from "axios";
 import { handleRefreshToken } from "./authServices";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5001/api/";
+console.log("API URL configured as:", API_URL);
 axios.defaults.baseURL = API_URL;
+
+// Add CORS headers
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 axios.interceptors.request.use(
   function (config) {
+    console.log("Making request to:", config.url);
     config.headers["authorization"] = `Bearer ${localStorage.getItem(
       "accessToken"
     )}`;
@@ -15,6 +20,7 @@ axios.interceptors.request.use(
     return config;
   },
   function (error) {
+    console.error("Request error:", error);
     return Promise.reject(error);
   }
 );

@@ -27,18 +27,37 @@ export const login = async (
   redirectTo: NavigateFunction
 ) => {
   try {
+    console.log("Attempting login with API URL:", httpClient.defaults.baseURL);
+    console.log("Login payload:", payload);
     const { data } = await httpClient.post("user/login", payload);
+    console.log("Login response:", data);
     storeAccessTokenToLocal(data.accessToken);
     storeRefreshTokenToLocal(data.refreshToken);
     redirectTo("/dashboard");
     snackBarStore.showSnackBar("Login success", "success");
   } catch (error: any) {
-    snackBarStore.showSnackBar(
-      `Problem in login: ${error.response.data}`,
-      "error"
-    );
-
-    console.log(error);
+    console.error("Login error:", error);
+    
+    if (error.response) {
+      console.error("Error response data:", error.response.data);
+      console.error("Error response status:", error.response.status);
+      snackBarStore.showSnackBar(
+        `Login failed: ${error.response.data}`,
+        "error"
+      );
+    } else if (error.request) {
+      console.error("No response received:", error.request);
+      snackBarStore.showSnackBar(
+        "Network error: No response from server. Check your connection.",
+        "error"
+      );
+    } else {
+      console.error("Error setting up request:", error.message);
+      snackBarStore.showSnackBar(
+        `Login error: ${error.message}`,
+        "error"
+      );
+    }
   }
 };
 
