@@ -6,19 +6,21 @@ import bcrypt from "bcrypt";
 import dbConnect from "./config/db";
 import baseRouter from "./routes";
 import User from "./models/UserModel";
+import corsOptions from "./cors-config";
 dotenv.config();
 
 const app = express();
 
-app.use(cors({ 
-  origin: [
-    "http://localhost:3000",
-    "https://your-netlify-site.netlify.app", // Replace with your actual Netlify URL
-    "https://shortifylink-bhaskar.netlify.app", // Common format for Netlify URLs
-    "*" // During testing - remove in production
-  ],
-  credentials: true
-}));
+// Use different CORS settings based on environment
+if (process.env.NODE_ENV === 'production') {
+  app.use(cors(corsOptions));
+  console.log("Using production CORS configuration");
+} else {
+  // Development CORS - just allow localhost
+  app.use(cors({ origin: "http://localhost:3000" }));
+  console.log("Using development CORS configuration");
+}
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

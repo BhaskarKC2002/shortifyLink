@@ -331,7 +331,7 @@ const convertRowDataToTableData = (
 ) => {
   return {
     ...data,
-    urlCode: `http://localhost:5001/api/url/${data.urlCode}`,
+    urlCode: `https://shortifylink-api.onrender.com/api/url/${data.urlCode}`,
     createdAt: moment.unix(Number(data.createdAt) / 1000).format("l"),
     expirationDate: data.expirationDate 
       ? moment(data.expirationDate).format("l") 

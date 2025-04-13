@@ -60,7 +60,7 @@ export const getUrlAnalytics = async (urlCode: string): Promise<{urlCode: string
 
 export const generateQRCode = async (urlCode: string): Promise<string> => {
   // We'll use a free QR code API service to generate a QR code
-  const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:5001/api/url/${urlCode}`;
+  const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shortifylink-api.onrender.com/api/url/${urlCode}`;
   
   return apiUrl; // This is just the URL to the QR code image
 };

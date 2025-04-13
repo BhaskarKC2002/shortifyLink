@@ -1,8 +1,9 @@
 import axios from "axios";
 import { handleRefreshToken } from "./authServices";
 
-// Set the base URL for API requests - use environment variable if available, otherwise fallback to localhost
+// Use environment variable in production, localhost in development
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5001/api/";
+console.log("Using API URL:", API_URL);
 
 axios.defaults.baseURL = API_URL;
 
