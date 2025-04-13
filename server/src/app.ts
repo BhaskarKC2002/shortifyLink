@@ -11,15 +11,9 @@ dotenv.config();
 
 const app = express();
 
-// Use different CORS settings based on environment
-if (process.env.NODE_ENV === 'production') {
-  app.use(cors(corsOptions));
-  console.log("Using production CORS configuration");
-} else {
-  // Development CORS - just allow localhost
-  app.use(cors({ origin: "http://localhost:3000" }));
-  console.log("Using development CORS configuration");
-}
+// Use CORS middleware properly
+app.use(cors(corsOptions));
+console.log("Using CORS configuration with allowed origins:", corsOptions.origin);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
