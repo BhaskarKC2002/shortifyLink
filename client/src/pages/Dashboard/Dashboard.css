@@ -1,0 +1,140 @@
+.dashboard {
+	height: calc(100vh - 185px);
+	padding: 20px;
+	max-width: 1100px;
+	margin: 0 auto;
+	overflow-y: auto;
+	background-color: #f8f9fa;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard h3 {
+	margin-top: 15px;
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 1.5rem;
+	border-left: 4px solid #4a6cf7;
+	padding-left: 10px;
+}
+
+.dashboard__addNew {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 15px;
+}
+
+.dashboard__empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 40px;
+	text-align: center;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard__empty-state p {
+	font-size: 1.1rem;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.dashbard__add-new {
+	background-color: #fff;
+	padding: 25px;
+	margin-bottom: 25px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard__add-new-actions {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 25px;
+	gap: 15px;
+}
+
+.dashboard__search {
+	margin-bottom: 20px;
+	background-color: white;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard__pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: white;
+	padding: 12px;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-button {
+	background-color: #4a6cf7;
+	color: white;
+	border: none;
+	padding: 8px 20px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+	margin: 0 10px;
+	transition: background-color 0.2s;
+}
+
+.pagination-button:hover {
+	background-color: #3a5ce5;
+}
+
+.pagination-button:disabled {
+	background-color: #cccccc;
+	cursor: not-allowed;
+}
+
+.pagination-info {
+	font-size: 14px;
+	color: #666;
+	background-color: #f0f2f5;
+	padding: 6px 12px;
+	border-radius: 4px;
+}
+
+/* Beginner-friendly help text */
+.help-text {
+	color: #666;
+	font-size: 0.9rem;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+/* Loading indicator */
+.dashboard__loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	font-size: 1.2rem;
+	color: #4a6cf7;
+}
+
+@media screen and (max-width: 768px) {
+	.dashboard {
+		padding: 15px;
+	}
+	
+	.dashboard__add-new-actions {
+		flex-direction: column;
+	}
+	
+	.dashbard__add-new {
+		padding: 20px;
+	}
+}
